@@ -3,6 +3,7 @@ bases:
 patchesJson6902:
   - target:
       version: v1
+      group: apps
       kind: Deployment
       name: bgd
     path: bgd-deployment.yaml
