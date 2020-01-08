@@ -15,4 +15,5 @@ spec:
     name: bgd
     weight: 100
 status:
-  ingress: {}
+  ingress:
+    host: ""
