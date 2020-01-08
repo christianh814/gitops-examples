@@ -17,4 +17,5 @@ spec:
 status:
   ingress:
   - conditions:
-    host: ""
+    - status: "True"
+      type: Admitted
