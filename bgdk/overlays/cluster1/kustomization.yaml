@@ -7,3 +7,9 @@ patchesJson6902:
       kind: Deployment
       name: bgd
     path: bgd-deployment.yaml
+  - target:
+      version: v1
+      group: route.openshift.io
+      kind: Route
+      name: bgd
+    path: bgd-route.yaml
