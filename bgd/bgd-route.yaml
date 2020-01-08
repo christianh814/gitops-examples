@@ -11,7 +11,7 @@ spec:
   port:
     targetPort: 8080
   to:
-    kind: ""
+    kind: Service
     name: bgd
     weight: 100
 status:
