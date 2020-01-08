@@ -12,4 +12,5 @@ patchesJson6902:
       group: route.openshift.io
       kind: Route
       name: bgd
+      namespace: bgd
     path: bgd-route.yaml
