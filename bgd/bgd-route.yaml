@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  creationTimestamp: null
+  labels:
+    app: bgd
+  name: bgd
+  namespace: bgd
+spec:
+  host: ""
+  port:
+    targetPort: 8080
+  to:
+    kind: ""
+    name: bgd
+    weight: null
+status:
+  ingress: null
