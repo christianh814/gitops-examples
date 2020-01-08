@@ -14,5 +14,3 @@ spec:
     kind: ""
     name: bgd
     weight: null
-status:
-  ingress: null
