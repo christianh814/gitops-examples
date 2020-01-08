@@ -13,4 +13,5 @@ spec:
   to:
     kind: ""
     name: bgd
-    weight: null
+    weight: {}
+status: {}
