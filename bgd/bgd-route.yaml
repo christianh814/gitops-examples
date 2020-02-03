@@ -7,7 +7,7 @@ metadata:
   name: bgd
   namespace: bgd
 spec:
-  host: "CHANGE"
+  host: "bgd.apps.chx-cluster1.chx.osecloud.com"
   port:
     targetPort: 8080
   to:
