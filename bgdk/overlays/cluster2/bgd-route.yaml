@@ -1,3 +1,3 @@
 - op: replace
   path: /spec/host
-  value: "bgd-bgd.apps.chx-cluster2.chx.osecloud.com"
+  value: "CHANGE"
