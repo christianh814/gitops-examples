@@ -1,0 +1,22 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  creationTimestamp: null
+  name: pricelist-postdeploy
+  namespace: pricelist
+spec:
+  template:
+    metadata:
+      creationTimestamp: null
+    spec:
+      containers:
+      - command:
+        - /bin/bash
+        - -c
+        - |
+          sleep 60
+          curl -s http://pricelist:8080/create_database.php
+        image: quay.io/redhatworkshops/pricelist:latest
+        name: pricelist-postdeploy
+        resources: {}
+      restartPolicy: Never
