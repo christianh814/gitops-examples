@@ -8,7 +8,7 @@ metadata:
   name: pricelist
   namespace: pricelist
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: pricelist
