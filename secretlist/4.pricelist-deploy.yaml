@@ -28,13 +28,28 @@ spec:
         resources: {}
         env:
         - name: MYSQL_DATABASE
-          value: pricelist
+          valueFrom:
+            secretKeyRef:
+              name: pricelist-secret
+              key: mysqldb
         - name: MYSQL_PASSWORD
-          value: pricelist
+          valueFrom:
+            secretKeyRef:
+              name: pricelist-secret
+              key: mysqlpass
         - name: MYSQL_USER
-          value: pricelist
+          valueFrom:
+            secretKeyRef:
+              name: pricelist-secret
+              key: mysqluser
         - name: MYSQL_SERVICE_HOST
-          value: mysql
+          valueFrom:
+            secretKeyRef:
+              name: pricelist-secret
+              key: mysqlhost
         - name: MYSQL_SERVICE_PORT
-          value: "3306"
+          valueFrom:
+            secretKeyRef:
+              name: pricelist-secret
+              key: mysqlport
 ...
