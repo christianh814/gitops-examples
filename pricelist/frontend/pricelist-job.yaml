@@ -20,7 +20,7 @@ spec:
         name: pricelist-postdeploy
         resources:
           requests:
-            memory: "512Mi"
+            memory: "256Mi"
             cpu: "512m"
           limits:
             memory: "1Gi"
