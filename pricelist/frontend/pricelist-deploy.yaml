@@ -24,7 +24,13 @@ spec:
       containers:
       - image: quay.io/redhatworkshops/pricelist:latest
         name: pricelist
-        resources: {}
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "512m"
+          limits:
+            memory: "1Gi"
+            cpu: "1"
         env:
         - name: MYSQL_DATABASE
           value: pricelist
