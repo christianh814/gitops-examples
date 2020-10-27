@@ -18,7 +18,7 @@ spec:
           curl -s http://pricelist:8080/create_database.php
         image: quay.io/redhatworkshops/pricelist:latest
         name: pricelist-postdeploy
-        resources: {}
+        resources:
           requests:
             memory: "512Mi"
             cpu: "512m"
