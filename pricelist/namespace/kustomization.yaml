@@ -3,3 +3,4 @@ bases:
 
 resources:
 - pricelist-namespace.yaml
+- pricelist-quota.yaml
