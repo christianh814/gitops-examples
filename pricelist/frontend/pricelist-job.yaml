@@ -19,4 +19,10 @@ spec:
         image: quay.io/redhatworkshops/pricelist:latest
         name: pricelist-postdeploy
         resources: {}
+          requests:
+            memory: "512Mi"
+            cpu: "512m"
+          limits:
+            memory: "1Gi"
+            cpu: "1"
       restartPolicy: Never
