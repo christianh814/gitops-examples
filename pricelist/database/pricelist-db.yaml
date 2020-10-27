@@ -31,7 +31,13 @@ spec:
           value: pricelist
         - name: MYSQL_USER
           value: pricelist
-        resources: {}
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "512m"
+          limits:
+            memory: "1Gi"
+            cpu: "1"
         volumeMounts:
         - mountPath: /var/lib/mysql/data
           name: mysql-db
