@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pricelist-db-pv
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+  labels:
+    pricelist-storage: "yes"
+spec:
+  storageClassName: ""
+  capacity:
+    storage: 1Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  claimRef:
+    name: pricelist-db-pvc
+    namespace: pricelist
+  nfs:
+    path: /exports/openshift/openshift4/pricelist-db-pv
+    server: 192.168.1.100
