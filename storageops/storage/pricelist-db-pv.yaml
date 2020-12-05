@@ -18,5 +18,5 @@ spec:
     name: pricelist-db-pvc
     namespace: pricelist
   nfs:
-    path: /exports/openshift/openshift4/pricelist-db-pv
+    path: /openshift/openshift4/pricelist-db-pv
     server: 192.168.1.100
