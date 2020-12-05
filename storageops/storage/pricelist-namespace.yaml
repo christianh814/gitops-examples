@@ -4,6 +4,3 @@ metadata:
   name: pricelist
   annotations:
     argocd.argoproj.io/sync-wave: "0"
-    openshift.io/sa.scc.uid-range:  1000710000/10000
-    openshift.io/sa.scc.mcs: s0:c25,c0
-    openshift.io/sa.scc.supplemental-groups: 1000710000/10000
