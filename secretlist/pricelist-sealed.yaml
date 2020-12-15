@@ -1,6 +1,8 @@
 apiVersion: bitnami.com/v1alpha1
 kind: SealedSecret
 metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "7"
   creationTimestamp: null
   name: pricelist-secret
   namespace: pricelist

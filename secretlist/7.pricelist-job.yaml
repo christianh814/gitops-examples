@@ -2,6 +2,8 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "6"
   creationTimestamp: null
   name: pricelist-postdeploy
   namespace: pricelist

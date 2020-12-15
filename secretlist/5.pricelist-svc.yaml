@@ -2,6 +2,8 @@
 apiVersion: v1
 kind: Service
 metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "4"
   creationTimestamp: null
   labels:
     app: pricelist
