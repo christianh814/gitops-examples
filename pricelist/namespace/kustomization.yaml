@@ -1,6 +1,0 @@
-bases:
-- ../base
-
-resources:
-- pricelist-namespace.yaml
-- pricelist-quota.yaml

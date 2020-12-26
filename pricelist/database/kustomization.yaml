@@ -1,6 +1,0 @@
-bases:
-- ../base
-
-resources:
-- pricelist-db-svc.yaml
-- pricelist-db.yaml

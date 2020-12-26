@@ -4,6 +4,8 @@ metadata:
   creationTimestamp: null
   name: pricelist-postdeploy
   namespace: pricelist
+  annotations:
+    argocd.argoproj.io/sync-wave: "7"
 spec:
   template:
     metadata:

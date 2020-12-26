@@ -7,6 +7,8 @@ metadata:
     tier: database
   name: mysql
   namespace: pricelist
+  annotations:
+    argocd.argoproj.io/sync-wave: "3"
 spec:
   replicas: 1
   selector:
@@ -43,4 +45,5 @@ spec:
           name: mysql-db
       volumes:
       - name: mysql-db
-        emptyDir: {}
+        persistentVolumeClaim:
+          claimName: pricelist-db-pvc

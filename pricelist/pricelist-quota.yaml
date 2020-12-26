@@ -3,6 +3,8 @@ kind: ResourceQuota
 metadata:
   name: pricelist-quota
   namespace: pricelist
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   hard:
     pods: '10'
