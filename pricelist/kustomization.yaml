@@ -1,0 +1,12 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- pricelist-db-pvc.yaml
+- pricelist-db-svc.yaml
+- pricelist-db.yaml
+- pricelist-deploy.yaml
+- pricelist-job.yaml
+- pricelist-namespace.yaml
+- pricelist-quota.yaml
+- pricelist-route.yaml
+- pricelist-svc.yaml
