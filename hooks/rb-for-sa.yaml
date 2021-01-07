@@ -12,5 +12,5 @@ roleRef:
   name: edit
 subjects:
 - kind: ServiceAccount
-  name: presync-pricelist
+  name: presyncjob-pricelist
   namespace: pricelist
