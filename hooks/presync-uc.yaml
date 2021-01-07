@@ -1,23 +1,19 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: ReplicaSet
 metadata:
-  creationTimestamp: null
-  labels:
-    app: pricelist
-    tier: frontend
-  name: pricelist
-  namespace: pricelist
   annotations:
     argocd.argoproj.io/hook: PreSync
     argocd.argoproj.io/hook-delete-policy: HookSucceeded
     argocd.argoproj.io/sync-wave: "0"
+  creationTimestamp: null
+  name: pricelist-cd-temp
+  namespace: pricelist
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: pricelist
       tier: frontend
-  strategy: {}
   template:
     metadata:
       creationTimestamp: null
@@ -26,23 +22,14 @@ spec:
         tier: frontend
     spec:
       containers:
-      - image: quay.io/redhatworkshops/pricelist-maint:latest
+        image: quay.io/redhatworkshops/pricelist:latest
+        imagePullPolicy: Always
         name: pricelist
         resources:
-          requests:
-            memory: "512Mi"
-            cpu: "512m"
           limits:
-            memory: "1Gi"
             cpu: "1"
-        env:
-        - name: MYSQL_DATABASE
-          value: "null"
-        - name: MYSQL_PASSWORD
-          value: "null"
-        - name: MYSQL_USER
-          value: "null"
-        - name: MYSQL_SERVICE_HOST
-          value: "null"
-        - name: MYSQL_SERVICE_PORT
-          value: "0000"
+            memory: 1Gi
+          requests:
+            cpu: 512m
+            memory: 512Mi
+      restartPolicy: Always
