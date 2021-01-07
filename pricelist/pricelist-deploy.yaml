@@ -31,8 +31,8 @@ spec:
             memory: "256Mi"
             cpu: "256m"
           limits:
-            memory: "512Mi"
-            cpu: "512m"
+            memory: "256Mi"
+            cpu: "256m"
         env:
         - name: MYSQL_DATABASE
           value: pricelist
