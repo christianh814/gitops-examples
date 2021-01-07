@@ -4,6 +4,10 @@ metadata:
   creationTimestamp: null
   name: system:openshift:scc:anyuid
   namespace: pricelist
+  annotations:
+    argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+    argocd.argoproj.io/sync-wave: "0"
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
