@@ -1,0 +1,56 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  creationTimestamp: null
+  name: pricelist-presync
+  namespace: pricelist
+  annotations:
+    argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+    argocd.argoproj.io/sync-wave: "0"
+spec:
+  template:
+    metadata:
+      creationTimestamp: null
+    spec:
+      securityContext:
+        supplementalGroups: [5555]
+      containers:
+      - command:
+        - /bin/bash
+        - -c
+        - |
+          sleep 10
+          /usr/bin/mysqldump --opt \ 
+          --host=${MYSQL_SERVICE_HOST} --port=${MYSQL_SERVICE_PORT} --user=${MYSQL_USER} --password=${MYSQL_PASSWORD} \
+          --databases ${MYSQL_DATABASE} > /mnt/pricelist-db-$(date +%Y-%m-%d_%s).sql
+        image: quay.io/redhatworkshops/mysql-client
+        name: pricelist-presync
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "128m"
+          limits:
+            memory: "1Gi"
+            cpu: "1"
+        env:
+        - name: MYSQL_DATABASE
+          value: pricelist
+        - name: MYSQL_PASSWORD
+          value: pricelist
+        - name: MYSQL_USER
+          value: pricelist
+        - name: MYSQL_SERVICE_HOST
+          value: mysql
+        - name: MYSQL_SERVICE_PORT
+          value: "3306"
+        volumeMounts:
+        - mountPath: /mnt
+          name: backup-mount
+      restartPolicy: Never
+      volumes:
+      - name: backup-mount
+        nfs:
+          server: 192.168.1.100
+          path: /openshift/openshift4/pricelist-db-backup
+
