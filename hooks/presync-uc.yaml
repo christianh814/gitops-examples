@@ -22,7 +22,7 @@ spec:
         tier: frontend
     spec:
       containers:
-        image: quay.io/redhatworkshops/pricelist:latest
+        image: quay.io/redhatworkshops/pricelist-maint:latest
         imagePullPolicy: Always
         name: pricelist
         resources:
