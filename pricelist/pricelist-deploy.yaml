@@ -28,11 +28,11 @@ spec:
         name: pricelist
         resources:
           requests:
+            memory: "256Mi"
+            cpu: "256m"
+          limits:
             memory: "512Mi"
             cpu: "512m"
-          limits:
-            memory: "1Gi"
-            cpu: "1"
         env:
         - name: MYSQL_DATABASE
           value: pricelist
