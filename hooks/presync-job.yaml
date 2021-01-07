@@ -7,12 +7,13 @@ metadata:
   annotations:
     argocd.argoproj.io/hook: PreSync
     argocd.argoproj.io/hook-delete-policy: HookSucceeded
-    argocd.argoproj.io/sync-wave: "0"
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   template:
     metadata:
       creationTimestamp: null
     spec:
+      serviceAccountName: presyncjob-pricelist
       securityContext:
         supplementalGroups: [5555]
       containers:
@@ -53,4 +54,3 @@ spec:
         nfs:
           server: 192.168.1.100
           path: /openshift/openshift4/pricelist-db-backup
-
