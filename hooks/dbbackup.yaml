@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: db-backup
+  name: db-backup
+  namespace: pricelist
+  annotations:
+    argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  containers:
+  - command:
+    - /bin/bash
+    - -c
+    - |
+      /usr/local/bin/db-backup.sh
+    image: quay.io/redhatworkshops/pricelist-maint:latest
+    imagePullPolicy: Always
+    name: db-backup
+    resources:
+      limits:
+        cpu: 32m
+        memory: 32Mi
+      requests:
+        cpu: 16m
+        memory: 16Mi
+  dnsPolicy: ClusterFirst
+  restartPolicy: Never
