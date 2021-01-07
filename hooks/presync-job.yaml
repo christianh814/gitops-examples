@@ -13,6 +13,7 @@ spec:
     metadata:
       creationTimestamp: null
     spec:
+      serviceAccount: deployer
       containers:
       - command:
         - /bin/bash
