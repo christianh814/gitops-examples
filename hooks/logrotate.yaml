@@ -18,7 +18,7 @@ spec:
     - |
       /usr/local/bin/logrotate.sh
     image: quay.io/redhatworkshops/pricelist-maint:latest
-    imagePullPolicy: Always
+    imagePullPolicy: IfNotPresent
     name: logrotate
     resources:
       limits:

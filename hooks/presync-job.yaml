@@ -21,6 +21,7 @@ spec:
         - |
           /usr/local/bin/maint-script.sh
         image: quay.io/redhatworkshops/pricelist-maint:latest
+        imagePullPolicy: IfNotPresent
         name: pricelist-presync
         resources:
           requests:
