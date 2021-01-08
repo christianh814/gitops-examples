@@ -7,3 +7,6 @@ resources:
 - github.com/christianh814/gitops-examples/pricelist
 - presync-sa.yaml
 - rb-for-sa.yaml
+- pricelist-wh-ss.yaml
+
+#- postsync-job.yaml

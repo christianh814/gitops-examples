@@ -1,0 +1,17 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: slackwebhook
+  namespace: pricelist
+  annotations:
+    argocd.argoproj.io/sync-wave: "7"
+spec:
+  encryptedData:
+    slackwebhook: AgAwuXvJmgpKnXBXuUctKC+gEh0DYv8jyU6GKyCbMdbNS5kE05UUSjNjlR412B0NrtxYDkn8Kqee9NTWCszJplOZmhusJ1pDgDfaHTJ96OZEbnmZ+7yuuKfrMy4oxVUJLBOxW/j+a7xWXTV+EjfSwfchqGYiEdWMU7l8v5/piD6ocuWJ7ug/o+17CMn/yMqvU/a3NfpnMIFArNvhOt95j6hD+ITsttaf6fjthukvjX+BJM2rA4cNGGJOdRl/r53SzSw1O8LpXVkSX/WLdVBbyqvCPMuOQnrMZHWHbsSglpbO6XRKbCwEMFe4DSoVwKm/aGj+mlo6HVllyN6a+FHxBZ/wyTPwUHohDpCGE+5ZHQwrZm2KYWhMNcOqlEqNeDetv/zfJnYlzTeXmdvKxMAHAbzTeHRB9jdzH0OAWCICZY9cYRcObVFQUvtbOvnhiPSsJZwxIs8/iZNm5FMH2rjtuaP+riTg7Ypicv+oQm/Eezl+v/lBKHlBEZNZYq8EM83hjgEjp2QLGMS3IlfRDurQORf9VZuOHyquJbdcBU5Pb/YMQeizinHCa0rkEsiRcnioayby+vAEtDlAmzsc1rnnhtaK6FElpqvpIjqbB7NrECIn6C5JTuqfkFhUsyBLbLFEt/cfw2UJR9maL+ALlvBc96hcYuEKiUsIAuIi8rULLxsbXgjfEJmPsJmRiW0z2WWuFhAQtJPdKI4juYW7mCNacxlMrUDE2tb4epNkeDMIZNnO8//MiyoB59nSLJLh076FBARyKUTIbSlAjP0kJ7U5nKBdVrCuW3jIsnEGSwrRdXPtbA==
+  template:
+    metadata:
+      creationTimestamp: null
+      name: slackwebhook
+      namespace: pricelist
+

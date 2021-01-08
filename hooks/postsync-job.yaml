@@ -1,0 +1,39 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  creationTimestamp: null
+  name: pricelist-postsync
+  namespace: pricelist
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+    argocd.argoproj.io/sync-wave: "0"
+spec:
+  template:
+    metadata:
+      creationTimestamp: null
+    spec:
+      containers:
+      - command:
+        - /bin/bash
+        - -c
+        - |
+          cat /tmp/webhook/slack
+        image: quay.io/redhatworkshops/pricelist-maint:latest
+        name: pricelist-postsync
+        resources:
+          requests:
+            memory: "16Mi"
+            cpu: "16m"
+          limits:
+            memory: "32Mi"
+            cpu: "32m"
+        volumeMounts:
+        - name: slack
+          mountPath: "/tmp/webhook"
+          readOnly: true
+      restartPolicy: Never
+      volumes:
+      - name: slack
+        secret:
+          secretName: slackwebhook
