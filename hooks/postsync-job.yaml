@@ -18,6 +18,7 @@ spec:
         - /bin/bash
         - -c
         - |
+          sleep 5
           id=$(uuidgen | awk -F'-' '{print $1}')
           curl -X POST --data-urlencode payload="{\"text\": \"Pricelist deployment ${id} was SUCCESSFUL.\"}" $(< /tmp/webhook/slackwebhook)
         image: quay.io/redhatworkshops/pricelist-maint:latest
