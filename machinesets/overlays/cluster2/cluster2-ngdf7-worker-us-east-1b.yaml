@@ -1,0 +1,63 @@
+apiVersion: machine.openshift.io/v1beta1
+kind: MachineSet
+metadata:
+  creationTimestamp: null
+  labels:
+    machine.openshift.io/cluster-api-cluster: cluster2-ngdf7
+  name: cluster2-ngdf7-worker-us-east-1b
+  namespace: openshift-machine-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      machine.openshift.io/cluster-api-cluster: cluster2-ngdf7
+      machine.openshift.io/cluster-api-machineset: cluster2-ngdf7-worker-us-east-1b
+  template:
+    metadata:
+      labels:
+        machine.openshift.io/cluster-api-cluster: cluster2-ngdf7
+        machine.openshift.io/cluster-api-machine-role: worker
+        machine.openshift.io/cluster-api-machine-type: worker
+        machine.openshift.io/cluster-api-machineset: cluster2-ngdf7-worker-us-east-1b
+    spec:
+      metadata: {}
+      providerSpec:
+        value:
+          ami:
+            id: ami-04a16d506e5b0e246
+          apiVersion: awsproviderconfig.openshift.io/v1beta1
+          blockDevices:
+          - ebs:
+              encrypted: true
+              iops: 0
+              kmsKey:
+                arn: ""
+              volumeSize: 120
+              volumeType: gp2
+          credentialsSecret:
+            name: aws-cloud-credentials
+          deviceIndex: 0
+          iamInstanceProfile:
+            id: cluster2-ngdf7-worker-profile
+          instanceType: m4.2xlarge
+          kind: AWSMachineProviderConfig
+          metadata:
+            creationTimestamp: null
+          placement:
+            availabilityZone: us-east-1b
+            region: us-east-1
+          securityGroups:
+          - filters:
+            - name: tag:Name
+              values:
+              - cluster2-ngdf7-worker-sg
+          subnet:
+            filters:
+            - name: tag:Name
+              values:
+              - cluster2-ngdf7-private-us-east-1b
+          tags:
+          - name: kubernetes.io/cluster/cluster2-ngdf7
+            value: owned
+          userDataSecret:
+            name: worker-user-data
