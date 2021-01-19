@@ -1,0 +1,13 @@
+apiVersion: "autoscaling.openshift.io/v1"
+kind: "ClusterAutoscaler"
+metadata:
+  name: "default"
+spec:
+  resourceLimits:
+    maxNodesTotal: 9
+  scaleDown: 
+    enabled: true 
+    delayAfterAdd: 1m 
+    delayAfterDelete: 1m 
+    delayAfterFailure: 30s 
+    unneededTime: 10s 
