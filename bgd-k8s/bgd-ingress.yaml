@@ -1,0 +1,19 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations: {}
+  name: welcome-php-ingress
+  namespace: bgd
+spec:
+  rules:
+  - host: bgd.127.0.0.1.nip.io
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: bgd
+            port:
+              number: 8080
