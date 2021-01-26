@@ -3,7 +3,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations: {}
-  name: welcome-php-ingress
+  name: bgd-ingress
   namespace: bgd
 spec:
   rules:
