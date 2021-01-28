@@ -3,28 +3,28 @@ kind: MachineSet
 metadata:
   creationTimestamp: null
   labels:
-    machine.openshift.io/cluster-api-cluster: cluster2-ngdf7
-  name: cluster2-ngdf7-worker-us-east-1a
+    machine.openshift.io/cluster-api-cluster: cluster3-mj5nw
+  name: cluster3-mj5nw-worker-us-west-2b
   namespace: openshift-machine-api
 spec:
   replicas: 1
   selector:
     matchLabels:
-      machine.openshift.io/cluster-api-cluster: cluster2-ngdf7
-      machine.openshift.io/cluster-api-machineset: cluster2-ngdf7-worker-us-east-1a
+      machine.openshift.io/cluster-api-cluster: cluster3-mj5nw
+      machine.openshift.io/cluster-api-machineset: cluster3-mj5nw-worker-us-west-2b
   template:
     metadata:
       labels:
-        machine.openshift.io/cluster-api-cluster: cluster2-ngdf7
+        machine.openshift.io/cluster-api-cluster: cluster3-mj5nw
         machine.openshift.io/cluster-api-machine-role: worker
         machine.openshift.io/cluster-api-machine-type: worker
-        machine.openshift.io/cluster-api-machineset: cluster2-ngdf7-worker-us-east-1a
+        machine.openshift.io/cluster-api-machineset: cluster3-mj5nw-worker-us-west-2b
     spec:
       metadata: {}
       providerSpec:
         value:
           ami:
-            id: ami-04a16d506e5b0e246
+            id: ami-0dd9008abadc519f1
           apiVersion: awsproviderconfig.openshift.io/v1beta1
           blockDevices:
           - ebs:
@@ -38,26 +38,26 @@ spec:
             name: aws-cloud-credentials
           deviceIndex: 0
           iamInstanceProfile:
-            id: cluster2-ngdf7-worker-profile
-          instanceType: m4.2xlarge
+            id: cluster3-mj5nw-worker-profile
+          instanceType: m5.large
           kind: AWSMachineProviderConfig
           metadata:
             creationTimestamp: null
           placement:
-            availabilityZone: us-east-1a
-            region: us-east-1
+            availabilityZone: us-west-2b
+            region: us-west-2
           securityGroups:
           - filters:
             - name: tag:Name
               values:
-              - cluster2-ngdf7-worker-sg
+              - cluster3-mj5nw-worker-sg
           subnet:
             filters:
             - name: tag:Name
               values:
-              - cluster2-ngdf7-private-us-east-1a
+              - cluster3-mj5nw-private-us-west-2b
           tags:
-          - name: kubernetes.io/cluster/cluster2-ngdf7
+          - name: kubernetes.io/cluster/cluster3-mj5nw
             value: owned
           userDataSecret:
             name: worker-user-data
