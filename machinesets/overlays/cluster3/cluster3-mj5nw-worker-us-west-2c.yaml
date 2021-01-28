@@ -7,7 +7,7 @@ metadata:
   name: cluster3-mj5nw-worker-us-west-2c
   namespace: openshift-machine-api
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       machine.openshift.io/cluster-api-cluster: cluster3-mj5nw
