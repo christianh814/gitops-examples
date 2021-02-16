@@ -1,0 +1,30 @@
+apiVersion: machineconfiguration.openshift.io/v1
+kind: MachineConfig
+metadata:
+  labels:
+    machineconfiguration.openshift.io/role: worker
+  name: 98-worker-foo
+spec:
+  config:
+    ignition:
+      config: {}
+      security:
+        tls: {}
+      timeouts: {}
+      version: 3.1.0
+    networkd: {}
+    passwd: {}
+    storage:
+      files:
+        - path: "/etc/foo/foo.conf"
+          filesystem: root
+          mode: 420
+          overwrite: true
+          contents:
+            source: data:;base64,R2l0T3BzIGlzIGZ1biE=
+        - path: "/etc/foo/foo-other.conf"
+          filesystem: root
+          mode: 420
+          overwrite: true
+          contents:
+            source: data:;base64,T3BlblNoaWZ0IGlzIHRoZSBiZXN0Cg==
