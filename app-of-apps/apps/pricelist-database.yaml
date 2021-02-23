@@ -1,0 +1,36 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: pricelist-database
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  destination:
+    namespace: pricelist
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    helm:
+      parameters:
+        - name: architecture
+          value: "replication"
+        - name: serviceAccount.name
+          value: "pricelist-db"
+        - name: serviceAccount.create
+          value: "false"
+        - name: auth.database
+          value: "pricelist"
+        - name: auth.username
+          value: "pricelist"
+        - name: auth.password
+          value: "pricelist"
+        - name: secondary.replicaCount
+          value: "2"
+    chart: mysql
+    repoURL: https://charts.bitnami.com/bitnami
+    targetRevision: 8.4.3
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
