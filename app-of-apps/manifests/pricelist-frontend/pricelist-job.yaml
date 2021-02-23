@@ -5,7 +5,7 @@ metadata:
   name: pricelist-postdeploy
   namespace: pricelist
   annotations:
-    argocd.argoproj.io/sync-wave: "0"
+    argocd.argoproj.io/sync-wave: "4"
 spec:
   template:
     metadata:
