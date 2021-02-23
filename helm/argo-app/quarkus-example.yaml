@@ -14,6 +14,8 @@ spec:
       parameters:
         - name: build.enabled
           value: "false"
+        - name: deploy.route.tls.enabled
+          value: "false"
         - name: image.name
           value: quay.io/ablock/gitops-helm-quarkus
     chart: quarkus
