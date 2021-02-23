@@ -4,3 +4,4 @@ resources:
 - pricelist-config-ns.yaml
 - pricelist-config-sa.yaml
 - pricelist-config-rb.yaml
+- pricelist-job.yaml

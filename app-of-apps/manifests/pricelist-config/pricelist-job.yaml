@@ -1,0 +1,29 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  creationTimestamp: null
+  name: pricelist-test-sleep
+  namespace: pricelist
+  annotations:
+    argocd.argoproj.io/sync-wave: "11"
+spec:
+  template:
+    metadata:
+      creationTimestamp: null
+    spec:
+      containers:
+      - command:
+        - /bin/bash
+        - -c
+        - |
+          sleep 30
+        image: registry.access.redhat.com/ubi8/ubi-minimal:latest
+        name: pricelist-test-sleep-container
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "128m"
+          limits:
+            memory: "256Mi"
+            cpu: "256m"
+      restartPolicy: Never
