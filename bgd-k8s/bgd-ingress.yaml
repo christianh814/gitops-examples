@@ -2,7 +2,9 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  annotations: {}
+  annotations:
+    kubernetes.io/ingress.class: "haproxy"
+    ingress.kubernetes.io/ssl-redirect: "false"
   name: bgd-ingress
   namespace: bgd
 spec:
