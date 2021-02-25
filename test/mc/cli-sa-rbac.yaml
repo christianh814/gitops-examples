@@ -24,3 +24,4 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: cli-job-sa
+    namespace: argocd
