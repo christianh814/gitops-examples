@@ -2,3 +2,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
 - mc-foo.yaml
+- cli-sa.yaml
+- cli-sa-rbac.yaml
+- cli-job-master.yaml
+- cli-job-worker.yaml
