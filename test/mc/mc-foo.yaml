@@ -21,7 +21,7 @@ spec:
           mode: 420
           overwrite: true
           contents:
-            source: data:;base64,R2l0T3BzIGlzIGZ1biEK
+            source: data:;base64,R2l0T3BzIGlzIGZ1biwgYW5kIGV4Y2l0aW5nIQo=
         - path: "/etc/foo/foo-other.conf"
           filesystem: root
           mode: 420
