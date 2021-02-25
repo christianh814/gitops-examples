@@ -4,6 +4,7 @@ kind: Ingress
 metadata:
   annotations:
     kubernetes.io/ingress.class: "haproxy"
+    ingress.kubernetes.io/ssl-redirect: "false"
   name: bgd-ingress
   namespace: bgd
 spec:
