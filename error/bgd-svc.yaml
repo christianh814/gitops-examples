@@ -1,0 +1,16 @@
+---
+apiVersion: v1
+kind: Servic
+metadata:
+  creationTimestamp: null
+  labels:
+    app: bgd
+  name: hello
+spec:
+  ports:
+  - port: 8080
+    protocol: CP
+    targetPort: 8080
+  selector:
+    app: bgd
+---
