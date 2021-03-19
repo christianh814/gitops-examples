@@ -6,7 +6,7 @@ metadata:
 spec:
   destination:
     namespace: argocd
-    server: CHANGEME
+    server: default/api-cluster2-chx-osecloud-com:6443/kube:admin
   project: default
   source:
     path: karvgo/cluster-config
@@ -20,7 +20,7 @@ spec:
     comparedTo:
       destination:
         namespace: argocd
-        server: CHANGEME
+        server: default/api-cluster2-chx-osecloud-com:6443/kube:admin
       source:
         path: karvgo/cluster-config
         repoURL: https://github.com/christianh814/gitops-examples
