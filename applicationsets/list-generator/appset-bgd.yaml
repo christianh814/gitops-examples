@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: bgd
+  namespace: argocd
+spec:
+  generators:
+  - list:
+      items:
+      - cluster: cluster1
+        url: https://api.cluster1.chx.osecloud.com:6443
+      - cluster: cluster2
+        url: https://api.cluster2.chx.osecloud.com:6443
+      - cluster: cluster3
+        url: https://api.cluster3.chx.osecloud.com:6443
+  template:
+    metadata:
+      name: '{{cluster}}-bgd'
+    spec:
+      source:
+        repoURL: https://github.com/christianh814/gitops-examples
+        targetRevision: master
+        path: applicationsets/list-generator/overlays/{{cluster}}
+      destination:
+        server: '{{url}}'
+        namespace: bgd
