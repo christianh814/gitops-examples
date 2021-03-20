@@ -18,7 +18,7 @@ spec:
       source:
         repoURL: https://github.com/christianh814/gitops-examples
         targetRevision: master
-        path: applicationsets/cluster-generator/overlays/dev
+        path: applicationsets/cluster-generator/overlays/dev/
       destination:
         server: '{{server}}' # "server" from the field in the secret
         namespace: bgd
