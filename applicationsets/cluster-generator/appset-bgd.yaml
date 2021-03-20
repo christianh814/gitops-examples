@@ -7,9 +7,9 @@ spec:
   generators:
   # - clusters: {} # Target all clusters
   - clusters:
-    selector:
-      matchLabels:
-        bgd-dev: true # add this to the cluster secret. More info http://bit.ly/2ORvXhw
+      selector:
+        matchLabels:
+          bgd-dev: true # add this to the cluster secret. More info http://bit.ly/2ORvXhw
   template:
     metadata:
       name: '{{name}}-bgd' # the "name" is the name field in the secret
