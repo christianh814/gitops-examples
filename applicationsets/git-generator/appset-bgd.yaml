@@ -9,10 +9,10 @@ spec:
       repoURL: https://github.com/christianh814/gitops-examples
       revision: master
       files:
-      - path: "applicationsets/git-generator/cluster-config/config.json"
+      - path: "applicationsets/git-generator/cluster-config/**/config.json"
   template:
     metadata:
-      name: '{{clusters.name}}-bgd'
+      name: '{{cluster.name}}-bgd'
     spec:
       project: default
       syncPolicy:
@@ -22,7 +22,7 @@ spec:
       source:
         repoURL: https://github.com/christianh814/gitops-examples
         targetRevision: master
-        path: applicationsets/git-generator/{{clusters.overlay}}
+        path: applicationsets/git-generator/overlay/{{cluster.overlay}}
       destination:
-        server: '{{clusters.server}}'
+        server: '{{cluster.server}}'
         namespace: bgd

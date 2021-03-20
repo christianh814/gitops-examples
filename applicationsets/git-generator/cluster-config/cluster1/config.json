@@ -1,0 +1,7 @@
+{
+  "cluster": {
+    "name": "cluster1",
+    "server": "https://api.cluster1.chx.osecloud.com:6443",
+    "overlay": "cluster1"
+  }
+}
