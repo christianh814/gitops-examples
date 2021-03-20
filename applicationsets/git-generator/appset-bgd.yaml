@@ -22,7 +22,7 @@ spec:
       source:
         repoURL: https://github.com/christianh814/gitops-examples
         targetRevision: master
-        path: applicationsets/git-generator/overlay/{{cluster.overlay}}
+        path: applicationsets/git-generator/overlays/{{cluster.overlay}}
       destination:
         server: '{{cluster.server}}'
         namespace: bgd
