@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: bgd
+  namespace: argocd
+spec:
+  generators:
+  - git:
+      repoURL: https://github.com/christianh814/gitops-examples
+      revision: master
+      files:
+      - path: "applicationsets/git-generator/cluster-config/config.json"
+  template:
+    metadata:
+      name: '{{clusters.name}}-bgd'
+    spec:
+      project: default
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+      source:
+        repoURL: https://github.com/christianh814/gitops-examples
+        targetRevision: master
+        path: applicationsets/git-generator/{{clusters.overlay}}
+      destination:
+        server: '{{clusters.address}}'
+        namespace: bgd
