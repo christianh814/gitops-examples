@@ -2,17 +2,17 @@
   "clusters": [
   {
     "name": "cluster1",
-    "address": "https://api.cluster1.chx.osecloud.com:6443",
+    "server": "https://api.cluster1.chx.osecloud.com:6443",
     "overlay": "overlays/cluster1"
   },
   {
     "name": "cluster2",
-    "address": "https://api.cluster2.chx.osecloud.com:6443",
+    "server": "https://api.cluster2.chx.osecloud.com:6443",
     "overlay": "overlays/cluster2"
   },
   {
     "name": "cluster3",
-    "address": "https://api.cluster3.chx.osecloud.com:6443",
+    "server": "https://api.cluster3.chx.osecloud.com:6443",
     "overlay": "overlays/cluster3"
   }
   ]
