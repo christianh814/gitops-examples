@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: bgd
+  namespace: argocd
+spec:
+  generators:
+  # - clusters: {} # Target all clusters
+  - clusters:
+    selector:
+      matchLabels:
+        bgd-dev: true # add this to the cluster secret. More info http://bit.ly/2ORvXhw
+  template:
+    metadata:
+      name: '{{name}}-bgd' # the "name" is the name field in the secret
+    spec:
+      project: default
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+      source:
+        repoURL: https://github.com/christianh814/gitops-examples
+        targetRevision: master
+        path: applicationsets/cluster-generator/overlays/dev
+      destination:
+        server: '{{server}}' # "server" from the field in the secret
+        namespace: bgd
