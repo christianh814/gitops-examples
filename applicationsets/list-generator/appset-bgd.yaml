@@ -17,6 +17,7 @@ spec:
     metadata:
       name: '{{cluster}}-bgd'
     spec:
+      project: default
       source:
         repoURL: https://github.com/christianh814/gitops-examples
         targetRevision: master
