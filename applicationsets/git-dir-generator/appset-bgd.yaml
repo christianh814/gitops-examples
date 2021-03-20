@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: bgd
+  name: pricelist
   namespace: argocd
 spec:
   generators:
@@ -25,4 +25,4 @@ spec:
         path: '{{path}}'
       destination:
         server: https://api.cluster1.chx.osecloud.com:6443
-        namespace: bgd
+        namespace: pricelist
