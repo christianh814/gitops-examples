@@ -18,6 +18,10 @@ spec:
       name: '{{cluster}}-bgd'
     spec:
       project: default
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
       source:
         repoURL: https://github.com/christianh814/gitops-examples
         targetRevision: master
