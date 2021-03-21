@@ -3,19 +3,21 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:
+    ingress.kubernetes.io/force-ssl-redirect: "true"
+    ingress.kubernetes.io/ssl-redirect: "true"
+    ingress.kubernetes.io/ssl-passthrough: "true"
     kubernetes.io/ingress.class: "haproxy"
-    ingress.kubernetes.io/ssl-redirect: "false"
-  name: bgd-ingress
-  namespace: bgd
+  name: argocd-ingress
+  namespace: argocd
 spec:
   rules:
-  - host: bgd.127.0.0.1.nip.io
+  - host: argocd.127.0.0.1.nip.io
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: bgd
+            name: argocd-server
             port:
               number: 8080
