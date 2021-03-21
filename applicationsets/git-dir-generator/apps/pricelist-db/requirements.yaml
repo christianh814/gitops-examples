@@ -1,4 +1,0 @@
-dependencies:
-- name: mysql
-  version: 8.4.3
-  repository: https://charts.bitnami.com/bitnami
