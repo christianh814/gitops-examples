@@ -41,6 +41,6 @@ spec:
         - name: MYSQL_USER
           value: pricelist
         - name: MYSQL_SERVICE_HOST
-          value: pricelist-database-mysql-primary
+          value: pricelist-db-mysql-primary
         - name: MYSQL_SERVICE_PORT
           value: "3306"
