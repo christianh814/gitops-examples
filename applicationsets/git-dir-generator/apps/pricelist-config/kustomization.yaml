@@ -3,4 +3,3 @@ kind: Kustomization
 resources:
 - pricelist-config-ns.yaml
 - pricelist-config-rb.yaml
-- pricelist-config-sa.yaml
