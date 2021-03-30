@@ -1,3 +1,4 @@
+apiVersion: v3
 name: quarkus-subchart
 type: application
 version: 1.0.0
