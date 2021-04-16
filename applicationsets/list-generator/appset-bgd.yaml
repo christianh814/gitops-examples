@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: bgd
-  namespace: argocd
+  namespace: openshift-gitops
 spec:
   generators:
   - list:
