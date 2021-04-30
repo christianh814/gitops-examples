@@ -6,4 +6,4 @@ appVersion: "1.0.0"
 dependencies:
 - name: quarkus
   version: 0.0.3
-  repository: https://redhat-developer.github.com/redhat-helm-charts
+  repository: https://redhat-developer.github.io/redhat-helm-charts

@@ -19,7 +19,7 @@ spec:
         - name: image.name
           value: quay.io/ablock/gitops-helm-quarkus
     chart: quarkus
-    repoURL: https://redhat-developer.github.com/redhat-helm-charts
+    repoURL: https://redhat-developer.github.io/redhat-helm-charts
     targetRevision: 0.0.3
   syncPolicy:
     automated:
