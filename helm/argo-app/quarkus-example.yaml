@@ -3,7 +3,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: quarkus-app
-  namespace: argocd
+  namespace: openshift-gitops
 spec:
   destination:
     namespace: demo
