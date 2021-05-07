@@ -18,12 +18,3 @@ spec:
     automated:
       prune: true
       selfHeal: true
-  sync:
-    comparedTo:
-      destination:
-        namespace: pricelist
-        server: https://kubernetes.default.svc
-      source:
-        path: app-of-apps/manifests/pricelist-config
-        repoURL: https://github.com/christianh814/gitops-examples
-        targetRevision: master

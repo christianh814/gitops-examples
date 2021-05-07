@@ -16,12 +16,3 @@ spec:
     automated:
       prune: true
       selfHeal: true
-  sync:
-    comparedTo:
-      destination:
-        namespace: argocd
-        server: https://kubernetes.default.svc
-      source:
-        path: app-of-apps/apps
-        repoURL: https://github.com/christianh814/gitops-examples
-        targetRevision: master
