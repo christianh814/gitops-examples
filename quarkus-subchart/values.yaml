@@ -5,6 +5,6 @@ quarkus:
     route:
       tls:
         enabled: true
-    replicas: 3
+    replicas: 1
   image:
     name: quay.io/ablock/gitops-helm-quarkus
