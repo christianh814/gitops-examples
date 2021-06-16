@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    ingress.kubernetes.io/force-ssl-redirect: "false"
+    ingress.kubernetes.io/ssl-redirect: "false"
+    kubernetes.io/ingress.class: "haproxy"
+  name: bgd-ingress
+  namespace: bgd
+spec:
+  rules:
+  - host: bgd.7f000001.nip.io
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: bgd
+            port:
+              number: 8080
