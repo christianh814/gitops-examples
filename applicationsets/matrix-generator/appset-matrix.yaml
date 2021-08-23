@@ -21,12 +21,16 @@ spec:
                   pricelist: deploy
   template:
     metadata:
-      name: '{{path.basename}}'
+      name: '{{name}}-{{path.basename}}'
     spec:
       project: default
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
       source:
-        repoURL: '{{repoURL}}'
-        targetRevision: '{{revision}'
+        repoURL: https://github.com/christianh814/gitops-examples
+        targetRevision: master
         path: '{{path}}'
       destination:
         server: '{{server}}'
