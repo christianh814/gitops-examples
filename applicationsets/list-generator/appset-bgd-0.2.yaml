@@ -9,11 +9,17 @@ spec:
   - list:
       elements:
       # v0.2.0+ form - does not require cluster/URL keys (but are still supported)
-      - overlay: kind
+      - overlay: blue
         gitRepo: https://github.com/christianh814/gitops-examples
+        appPath: applicationsets/list-generator/v0.2/k8s/overlays
+        appBranch: master
+      - overlay: green
+        gitRepo: https://gitlab.com/christianh814/test-applicationsets
+        appPath: list-generator/k8s/overlays
+        appBranch: main
   template:
     metadata:
-      name: '{{overlay}}-bgd'
+      name: 'bgd-{{overlay}}'
     spec:
       project: default
       syncPolicy:
@@ -22,8 +28,8 @@ spec:
           selfHeal: true
       source:
         repoURL: '{{gitRepo}}'
-        targetRevision: master
-        path: bgd-k8s/overlays/{{overlay}}
+        targetRevision: '{{appBranch}}'
+        path: '{{appPath}}/{{overlay}}'
       destination:
         server: https://kubernetes.default.svc
-        namespace: bgd
+        namespace: 'bgd-{{overlay}}'
