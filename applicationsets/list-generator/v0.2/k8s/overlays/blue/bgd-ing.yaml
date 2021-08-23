@@ -1,0 +1,3 @@
+- op: replace
+  path: /spec/rules/0/host
+  value: bgd-blue.7f000001.nip.io

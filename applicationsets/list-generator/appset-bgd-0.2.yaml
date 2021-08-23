@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: bgd
+  #namespace: openshift-gitops
+  namespace: argocd
+spec:
+  generators:
+  - list:
+      elements:
+      # v0.2.0+ form - does not require cluster/URL keys (but are still supported)
+      - overlay: kind
+        gitRepo: https://github.com/christianh814/gitops-examples
+  template:
+    metadata:
+      name: '{{overlay}}-bgd'
+    spec:
+      project: default
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+      source:
+        repoURL: '{{gitRepo}}'
+        targetRevision: master
+        path: bgd-k8s/overlays/{{overlay}}
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: bgd

@@ -1,0 +1,22 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: bgd-blue
+
+bases:
+- ../../base
+patchesJson6902:
+  - target:
+      version: v1
+      group: apps
+      kind: Deployment
+      name: bgd
+    path: bgd-deployment.yaml
+  - target:
+      version: v1
+      group: route.openshift.io
+      kind: Route
+      name: bgd
+    path: bgd-route.yaml
+resources:
+- bgd-namespace.yaml
