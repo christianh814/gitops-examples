@@ -3,5 +3,5 @@ kind: ServiceAccount
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "0"
-  name: cli-job-sa
+  name: cli-job-sa-bgd
   namespace: bgd

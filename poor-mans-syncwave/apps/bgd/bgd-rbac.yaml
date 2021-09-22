@@ -26,5 +26,5 @@ roleRef:
   name: cli-job-sa-role-bgd
 subjects:
   - kind: ServiceAccount
-    name: cli-job-sa
+    name: cli-job-sa-bgd
     namespace: bgd

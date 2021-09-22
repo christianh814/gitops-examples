@@ -12,3 +12,4 @@ resources:
 - guestbook-redis-mst-svc.yaml
 - guestbook-redis-slv-deploy.yaml
 - guestbook-redis-slv-svc.yaml.yaml
+- guestbook-scc-auid.yaml
