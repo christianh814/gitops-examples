@@ -3,7 +3,7 @@ kind: ClusterRole
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "0"
-  name: cli-job-sa-role
+  name: cli-job-sa-role-bgd
 rules:
   - apiGroups:
       - batch
@@ -17,13 +17,13 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: cli-job-sa-rolebinding
+  name: cli-job-sa-rolebinding-bgd
   annotations:
     argocd.argoproj.io/sync-wave: "0"
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: cli-job-sa-role
+  name: cli-job-sa-role-bgd
 subjects:
   - kind: ServiceAccount
     name: cli-job-sa
