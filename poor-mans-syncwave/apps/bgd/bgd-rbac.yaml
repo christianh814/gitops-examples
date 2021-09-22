@@ -3,6 +3,7 @@ kind: ClusterRole
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "0"
+    argocd.argoproj.io/hook: PreSync
   name: cli-job-sa-role-bgd
 rules:
   - apiGroups:
@@ -20,6 +21,7 @@ metadata:
   name: cli-job-sa-rolebinding-bgd
   annotations:
     argocd.argoproj.io/sync-wave: "0"
+    argocd.argoproj.io/hook: PreSync
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
