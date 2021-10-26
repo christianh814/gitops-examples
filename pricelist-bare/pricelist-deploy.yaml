@@ -10,7 +10,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "5"
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: pricelist
