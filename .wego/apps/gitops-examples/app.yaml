@@ -1,0 +1,14 @@
+---
+apiVersion: wego.weave.works/v1alpha1
+kind: Application
+metadata:
+  labels:
+    wego.weave.works/app-identifier: wego-e67db21b878f4d25bed29b8f86e52eb0
+  name: gitops-examples
+  namespace: wego-system
+spec:
+  branch: master
+  deployment_type: kustomize
+  path: bgd-k8s/overlays/kind/
+  source_type: git
+  url: ssh://git@github.com/christianh814/gitops-examples.git
