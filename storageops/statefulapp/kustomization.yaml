@@ -1,0 +1,10 @@
+resources:
+- pricelist-namespace.yaml
+- pricelist-quota.yaml
+- pricelist-db-pv.yaml
+- pricelist-db-pvc.yaml
+- pricelist-db.yaml
+- pricelist-db-svc.yaml
+- pricelist-deploy.yaml
+- pricelist-svc.yaml
+- pricelist-job.yaml

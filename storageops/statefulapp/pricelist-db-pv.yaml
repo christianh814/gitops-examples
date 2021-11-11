@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pricelist-db-pv
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+  labels:
+    pricelist-storage: "yes"
+spec:
+  storageClassName: ""
+  capacity:
+    storage: 1Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  claimRef:
+    name: pricelist-db-pvc
+    namespace: pricelist
+  csi:
+    driver: ebs.csi.aws.com
+    # volumeId from: aws ec2 create-volume --region=us-east-1 --availability-zone=us-east-1a --size=1 --volume-type=gp2
+    volumeHandle: vol-062df91330437e6e5
+    fsType: xfs
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: topology.ebs.csi.aws.com/zone
+          operator: In
+          values:
+          - us-east-1a

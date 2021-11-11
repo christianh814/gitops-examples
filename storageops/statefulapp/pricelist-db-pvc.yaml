@@ -1,0 +1,20 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: pricelist-db-pvc
+  namespace: pricelist
+  labels:
+    pricelist-storage: "yes"
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+spec:
+  storageClassName: ""
+  volumeName: pricelist-db-pv
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  selector:
+    matchLabels:
+      pricelist-storage: "yes"

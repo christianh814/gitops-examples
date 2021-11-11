@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: pricelist
+  namespace: openshift-gitops
+spec:
+  destination:
+    namespace: pricelist
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    repoURL: https://github.com/christianh814/gitops-examples/
+    path: storageops/statefulapp
+    targetRevision: master
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
+    retry:
+      limit: 15
+      backoff:
+        duration: 15s
+        factor: 2
+        maxDuration: 5m
