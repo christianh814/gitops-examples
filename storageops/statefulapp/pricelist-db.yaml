@@ -37,8 +37,7 @@ spec:
         supplementalGroups: [65534]
       containers:
       - name: mysql
-        ##image: registry.access.redhat.com/rhscl/mysql-56-rhel7:latest
-        image: registry.redhat.io/rhel8/mysql-80:latest
+        image: registry.access.redhat.com/rhscl/mysql-56-rhel7:latest
         env:
         - name: MYSQL_DATABASE
           value: pricelist
