@@ -34,7 +34,7 @@ spec:
                 - us-east-1a
       serviceAccountName: pricelist-db-sa
       securityContext:
-        runAsUser: 65534
+        ####runAsUser: 65534
         supplementalGroups: [65534]
       containers:
       - image: registry.access.redhat.com/rhscl/mysql-56-rhel7:latest
