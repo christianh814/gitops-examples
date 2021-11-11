@@ -34,11 +34,11 @@ spec:
                 - us-east-1a
       serviceAccountName: pricelist-db-sa
       securityContext:
-        ####runAsUser: 65534
         supplementalGroups: [65534]
       containers:
-      - image: registry.access.redhat.com/rhscl/mysql-56-rhel7:latest
-        name: mysql
+      - name: mysql
+        ##image: registry.access.redhat.com/rhscl/mysql-56-rhel7:latest
+        image: registry.redhat.io/rhel8/mysql-80:latest
         env:
         - name: MYSQL_DATABASE
           value: pricelist
