@@ -21,7 +21,7 @@ spec:
     driver: ebs.csi.aws.com
     # volumeId from: aws ec2 create-volume --region=us-east-1 --availability-zone=us-east-1a --size=1 --volume-type=gp2
     #volumeHandle: <volumeId>
-    volumeHandle: vol-001eb67b9a1a28d37
+    volumeHandle: vol-058bf54e1346e13e5
     fsType: xfs
   nodeAffinity:
     required:
