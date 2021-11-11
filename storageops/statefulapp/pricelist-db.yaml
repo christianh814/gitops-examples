@@ -23,15 +23,18 @@ spec:
         app: mysql
         tier: database
     spec:
-      nodeAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution:
-          nodeSelectorTerms:
-          - matchExpressions:
-            - key: topology.ebs.csi.aws.com/zone
-              operator: In
-              values:
-              - us-east-1a
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: topology.ebs.csi.aws.com/zone
+                operator: In
+                values:
+                - us-east-1a
+      serviceAccountName: pricelist-db-sa
       securityContext:
+        runAsUser: 65534
         supplementalGroups: [5555]
       containers:
       - image: registry.access.redhat.com/rhscl/mysql-56-rhel7:latest

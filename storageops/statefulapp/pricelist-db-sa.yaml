@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: pricelist-db-sa
+  namespace: pricelist
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"

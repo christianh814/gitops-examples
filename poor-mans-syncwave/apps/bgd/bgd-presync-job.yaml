@@ -30,6 +30,5 @@ spec:
             value: "15"
       dnsPolicy: ClusterFirst
       restartPolicy: OnFailure
-      serviceAccount: cli-job-sa-bgd
       serviceAccountName: cli-job-sa-bgd
       terminationGracePeriodSeconds: 90

@@ -1,6 +1,8 @@
 resources:
 - pricelist-namespace.yaml
 - pricelist-quota.yaml
+- pricelist-db-sa-rb.yaml
+- pricelist-db-sa.yaml
 - pricelist-db-pv.yaml
 - pricelist-db-pvc.yaml
 - pricelist-db.yaml

@@ -13,7 +13,7 @@ spec:
     metadata:
       creationTimestamp: null
     spec:
-      serviceAccount: presyncjob-pricelist
+      serviceAccountName: presyncjob-pricelist
       containers:
       - command:
         - /bin/bash
