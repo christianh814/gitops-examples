@@ -1,0 +1,20 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  creationTimestamp: null
+  labels:
+    app: pricelist
+    app.kubernetes.io/instance: pricelist
+    tier: frontend
+  annotations:
+    argocd.argoproj.io/sync-wave: "8"
+  name: pricelist
+  namespace: pricelist
+spec:
+  host: ""
+  port:
+    targetPort: 8080
+  to:
+    kind: Service
+    name: pricelist
+    weight: 100

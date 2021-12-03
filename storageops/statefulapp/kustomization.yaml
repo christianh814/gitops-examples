@@ -10,3 +10,4 @@ resources:
 - pricelist-deploy.yaml
 - pricelist-svc.yaml
 - pricelist-job.yaml
+- pricelist-route.yaml
