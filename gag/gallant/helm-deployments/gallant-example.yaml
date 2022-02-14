@@ -1,0 +1,31 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: quarkus-app
+  namespace: openshift-gitops
+spec:
+  destination:
+    namespace: gallant
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    helm:
+      parameters:
+        - name: build.enabled
+          value: "false"
+        - name: deploy.route.tls.enabled
+          value: "true"
+        - name: deploy.replicas
+          value: 2
+        - name: image.name
+          value: quay.io/ablock/gitops-helm-quarkus
+    chart: quarkus
+    repoURL: https://redhat-developer.github.io/redhat-helm-charts
+    targetRevision: 0.0.3
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
