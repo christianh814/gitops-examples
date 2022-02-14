@@ -17,7 +17,7 @@ spec:
         - name: deploy.route.tls.enabled
           value: "true"
         - name: deploy.replicas
-          value: 2
+          value: "2"
         - name: image.name
           value: quay.io/ablock/gitops-helm-quarkus
     chart: quarkus
