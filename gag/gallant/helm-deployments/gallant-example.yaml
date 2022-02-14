@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: quarkus-app
+  name: quarkus-app-gallant
   namespace: openshift-gitops
 spec:
   destination:
