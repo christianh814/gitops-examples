@@ -4,6 +4,8 @@ kind: Application
 metadata:
   name: quarkus-app-gallant
   namespace: openshift-gitops
+  labels:
+    argocd.argoproj.io/sync-wave: "2"
 spec:
   destination:
     namespace: gallant
