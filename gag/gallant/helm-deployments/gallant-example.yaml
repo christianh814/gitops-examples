@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: quarkus-app-gallant
+  name: quarkus-app
   namespace: openshift-gitops
   labels:
     argocd.argoproj.io/sync-wave: "2"
