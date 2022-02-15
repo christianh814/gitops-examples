@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: pricelist-app
+  namespace: openshift-gitops
+  labels:
+    argocd.argoproj.io/sync-wave: "4"
+spec:
+  destination:
+    namespace: pricelist
+    server: https://kubernetes.default.svc
+  project: pricelist
+  source:
+    path: pricelist/
+    repoURL: https://github.com/christianh814/gitops-examples
+    targetRevision: master
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

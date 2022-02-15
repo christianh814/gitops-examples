@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: pricelist
+  labels:
+    argocd.argoproj.io/sync-wave: "3"
+spec:
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  destinations:
+  - namespace: '*'
+    server: '*'
+  sourceRepos:
+  - '*'
+  roles:
+  - description: Developers get view and sync
+    name: developer
+    policies:
+    - p, role:developer, applications, get, pricelist/*, allow
+    - p, role:developer, applications, sync, pricelist/*, allow
+    - p, role:developer, projects, get, pricelist, allow
