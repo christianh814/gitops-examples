@@ -1,0 +1,39 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Sensor
+metadata:
+  name: webhook
+spec:
+  template:
+    serviceAccountName: argo-events-sa
+  dependencies:
+  - name: payload
+    eventSourceName: webhook
+    eventName: hello-world
+  triggers:
+  - template:
+      name: payload
+      k8s:
+        group: ""
+        version: v1
+        resource: pods
+        operation: create
+        source:
+          resource:
+            apiVersion: v1
+            kind: Pod
+            metadata:
+              generateName: payload-
+              labels:
+                app: payload
+            spec:
+              containers:
+              - name: hello
+                image: alpine
+                command: ["echo"]
+                args: ["Payload received: ", "", "\n"]
+              restartPolicy: Never
+        parameters:
+          - src:
+              dependencyName: payload
+              dataKey: body.message
+            dest: spec.containers.0.args.1
