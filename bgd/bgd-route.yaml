@@ -14,8 +14,4 @@ spec:
     kind: Service
     name: bgd
     weight: 100
-status:
-  ingress:
-  - conditions:
-    - status: "True"
-      type: Admitted
+status: {}
