@@ -1,0 +1,8 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: bgd
+
+resources:
+- bgd-deployment.yaml
+- bgd-namespace.yaml
+- bgd-svc.yaml
