@@ -1,0 +1,33 @@
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+  name: pod-executer
+spec:
+  template:
+    spec:
+      containers:
+        - image: quay.io/openshift/origin-cli:4.10
+          command:
+            - /bin/bash
+            - -c
+            - |
+              export HOME=/tmp/
+              echo ""
+              echo "Running Kubectl exec"
+              echo "--------------------"
+              sleep $SLEEP
+              echo ""
+              kubectl exec -n welcome-app -i $(kubectl get pods -n welcome-app -l app=welcome-php -o name) -- hostname
+          imagePullPolicy: Always
+          name: pod-execute-pod
+          env:
+          - name: SLEEP
+            value: "5"
+      dnsPolicy: ClusterFirst
+      restartPolicy: OnFailure
+      serviceAccountName: pod-exec-sa
+      terminationGracePeriodSeconds: 30
