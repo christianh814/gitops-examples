@@ -1,0 +1,22 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    ingress.kubernetes.io/ssl-redirect: "false"
+    ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/ingress.class: haproxy
+  name: pricelist-ingress
+  namespace: pricelist
+spec:
+  rules:
+  - host: pricelist.127.0.0.1.nip.io
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: pricelist
+            port:
+              number: 8080
