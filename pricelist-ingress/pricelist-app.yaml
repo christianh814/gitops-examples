@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: pricelist
+  namespace: argocd
+spec:
+  destination:
+    namespace: pricelist
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: pricelist-ingress/app
+    repoURL: https://github.com/christianh814/gitops-examples
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    retry:
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m0s
+      limit: 5
+    syncOptions:
+      - CreateNamespace=true
