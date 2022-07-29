@@ -7,7 +7,7 @@ spec:
   generators:
   - git:
       repoURL: https://github.com/christianh814/gitops-examples
-      revision: master
+      revision: main
       directories:
       - path: poor-mans-syncwave/apps/*
   template:
@@ -27,7 +27,7 @@ spec:
             maxDuration: 5m
       source:
         repoURL: https://github.com/christianh814/gitops-examples
-        targetRevision: master
+        targetRevision: main
         path: '{{path}}'
       destination:
         server: https://kubernetes.default.svc

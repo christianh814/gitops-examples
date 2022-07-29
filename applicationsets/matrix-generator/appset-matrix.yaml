@@ -11,7 +11,7 @@ spec:
           # git generator, 'child' #1
           - git:
               repoURL: https://github.com/christianh814/gitops-examples
-              revision: master
+              revision: main
               directories:
               - path: applicationsets/git-dir-generator/apps/*
           # cluster generator, 'child' #2
@@ -30,7 +30,7 @@ spec:
           selfHeal: true
       source:
         repoURL: https://github.com/christianh814/gitops-examples
-        targetRevision: master
+        targetRevision: main
         path: '{{path}}'
       destination:
         server: '{{server}}'

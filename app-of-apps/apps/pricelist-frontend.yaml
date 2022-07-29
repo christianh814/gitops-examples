@@ -13,7 +13,7 @@ spec:
   source:
     path: app-of-apps/manifests/pricelist-frontend
     repoURL: https://github.com/christianh814/gitops-examples
-    targetRevision: master
+    targetRevision: main
   syncPolicy:
     automated:
       prune: true

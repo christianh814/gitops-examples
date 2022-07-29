@@ -11,7 +11,7 @@ spec:
   source:
     repoURL: https://github.com/christianh814/gitops-examples/
     path: storageops/statefulapp
-    targetRevision: master
+    targetRevision: main
   syncPolicy:
     automated:
       prune: false

@@ -11,7 +11,7 @@ spec:
       - overlay: blue
         gitRepo: https://github.com/christianh814/gitops-examples
         appPath: applicationsets/list-generator/v0.2/ocp/overlays
-        appBranch: master
+        appBranch: main
       - overlay: green
         gitRepo: https://gitlab.com/christianh814/test-applicationsets.git
         appPath: list-generator/ocp/overlays

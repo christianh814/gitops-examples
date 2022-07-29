@@ -7,7 +7,7 @@ spec:
   generators:
   - git:
       repoURL: https://github.com/christianh814/gitops-examples
-      revision: master
+      revision: main
       files:
       - path: "applicationsets/git-generator/cluster-config/**/config.json"
   template:
@@ -21,7 +21,7 @@ spec:
           selfHeal: true
       source:
         repoURL: https://github.com/christianh814/gitops-examples
-        targetRevision: master
+        targetRevision: main
         path: applicationsets/git-generator/overlays/{{cluster.overlay}}
       destination:
         server: '{{cluster.server}}'

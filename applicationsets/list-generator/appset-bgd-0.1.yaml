@@ -24,7 +24,7 @@ spec:
           selfHeal: true
       source:
         repoURL: https://github.com/christianh814/gitops-examples
-        targetRevision: master
+        targetRevision: main
         path: applicationsets/list-generator/v0.1/overlays/{{cluster}}
       destination:
         server: '{{url}}'

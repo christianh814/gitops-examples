@@ -7,7 +7,7 @@ spec:
   generators:
   - git:
       repoURL: https://github.com/christianh814/gitops-examples
-      revision: master
+      revision: main
       directories:
       - path: applicationsets/git-dir-generator/apps/*
   template:
@@ -21,7 +21,7 @@ spec:
           selfHeal: true
       source:
         repoURL: https://github.com/christianh814/gitops-examples
-        targetRevision: master
+        targetRevision: main
         path: '{{path}}'
       destination:
         server: https://api.cluster1.chx.osecloud.com:6443

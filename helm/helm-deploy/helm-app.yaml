@@ -11,7 +11,7 @@ spec:
   source:
     path: helm/argo-app
     repoURL: https://github.com/christianh814/gitops-examples
-    targetRevision: master
+    targetRevision: main
   syncPolicy:
     automated:
       prune: true

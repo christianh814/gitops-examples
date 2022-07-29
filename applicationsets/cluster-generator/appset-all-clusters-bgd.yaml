@@ -17,7 +17,7 @@ spec:
           selfHeal: true
       source:
         repoURL: https://github.com/christianh814/gitops-examples
-        targetRevision: master
+        targetRevision: main
         path: applicationsets/cluster-generator/overlays/dev/
       destination:
         server: '{{server}}' # "server" from the field in the secret
