@@ -1,0 +1,21 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: bluegreen
+
+bases:
+- ../../base
+
+resources:
+- ingress.yaml
+- namespace.yaml
+
+patchesJson6902:
+  - target:
+      version: v1alpha1
+      group: argoproj.io
+      kind: Rollout
+      name: gobg
+    patch: |-
+      - op: replace
+        path: /spec/template/spec/containers/0/image
+        value: christianh814/gobg:blue
