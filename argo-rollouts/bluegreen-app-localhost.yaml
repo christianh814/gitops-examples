@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bluegreen
+  namespace: argocd
+spec:
+  project: default
+  source:
+    path: argo-rollouts/bg/overlays/localhost
+    repoURL: 'https://github.com/christianh814/gitops-examples'
+    targetRevision: HEAD
+  destination:
+    namespace: bluegreen
+    server: 'https://kubernetes.default.svc'
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
+    retry:
+      limit: 5
+      backoff:
+        duration: 5s
+        maxDuration: 3m0s
+        factor: 2
