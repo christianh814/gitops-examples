@@ -18,13 +18,3 @@ spec:
               number: 80
         path: /
         pathType: Prefix
-  - host: rollouts-canary-preview.7f000001.nip.io
-    http:
-      paths:
-      - backend:
-          service:
-            name: rollouts-demo-canary
-            port:
-              number: 80
-        path: /
-        pathType: Prefix
