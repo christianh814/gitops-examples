@@ -18,3 +18,13 @@ spec:
               number: 8080
         path: /
         pathType: Prefix
+  - host: bg-preview.7f000001.nip.io
+    http:
+      paths:
+      - backend:
+          service:
+            name: gobg-preview
+            port:
+              number: 8080
+        path: /
+        pathType: Prefix
