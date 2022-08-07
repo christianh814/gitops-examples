@@ -1,16 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: bluegreen
+  name: canary
   namespace: argocd
 spec:
   project: default
   source:
-    path: argo-rollouts/bg/overlays/localhost
+    path: argo-rollouts/canary/overlays/localhost
     repoURL: 'https://github.com/christianh814/gitops-examples'
     targetRevision: main
   destination:
-    namespace: bluegreen
+    namespace: canary
     server: 'https://kubernetes.default.svc'
   syncPolicy:
     automated:
