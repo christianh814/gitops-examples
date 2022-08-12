@@ -8,7 +8,7 @@ spec:
   template:
     spec:
       containers:
-        - image: registry.redhat.io/openshift4/ose-cli:v4.7
+        - image: quay.io/openshift/origin-cli:4.11
           command:
             - /bin/bash
             - -c
@@ -17,6 +17,7 @@ spec:
               echo ""
               echo -n "Waiting for deployment"
               sleep $SLEEP
+              ## Cloud also use `kubectl`
               until oc wait --for condition=complete --timeout=30m jobs/guestbook-cli-wait -n guestbook 2>&1 >/dev/null
               do
                 echo -n "."

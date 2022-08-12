@@ -12,7 +12,7 @@ spec:
   template:
     spec:
       containers:
-        - image: registry.redhat.io/openshift4/ose-cli:v4.4
+        - image: quay.io/openshift/origin-cli:4.11
           command:
             - /bin/bash
             - -c
@@ -21,6 +21,7 @@ spec:
               echo ""
               echo -n "Waiting for the MCP $MCP to converge."
               sleep $SLEEP
+              ## Cloud also use `kubectl`
               until oc wait --for condition=updated --timeout=60s mcp $MCP
               do
                 echo -n "...still waiting for $MCP to converge"
