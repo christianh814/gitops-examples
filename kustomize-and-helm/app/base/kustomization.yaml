@@ -7,3 +7,5 @@ helmCharts:
   repo: https://redhat-developer.github.io/redhat-helm-charts
   valuesFile: values.yaml
   releaseName: quarkus-app
+  ## IF needed
+  #includeCRDs: true
