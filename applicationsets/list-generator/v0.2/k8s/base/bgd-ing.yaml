@@ -4,9 +4,9 @@ metadata:
   annotations:
     ingress.kubernetes.io/force-ssl-redirect: "false"
     ingress.kubernetes.io/ssl-redirect: "false"
-    kubernetes.io/ingress.class: "haproxy"
   name: bgd-ingress
 spec:
+  ingressClassName: nginx
   rules:
   - host: bgd.7f000001.nip.io
     http:
