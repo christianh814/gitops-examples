@@ -1,0 +1,51 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: pricelist
+  namespace: argocd
+spec:
+  generators:
+  - list:
+      elements:
+      - srv: config
+        path: applicationsets/rollingsync/apps/pricelist-config
+      - srv: db
+        path: applicationsets/rollingsync/apps/pricelist-db
+      - srv: frontend
+        path: applicationsets/rollingsync/apps/pricelist-frontend
+  strategy:
+    type: RollingSync
+    rollingSync:
+      steps:
+        - matchExpressions:
+            - key: srv
+              operator: In
+              values:
+                - config
+          #maxUpdate: 100%  # if undefined, all applications matched are updated together (default is 100%)
+        - matchExpressions:
+            - key: srv
+              operator: In
+              values:
+                - db
+          #maxUpdate: 0      # if 0, no matched applications will be updated
+        - matchExpressions:
+            - key: srv
+              operator: In
+              values:
+                - frontend
+          #maxUpdate: 10%    # all application matched are rollout no more than the percentage indicates
+  template:
+    metadata:
+      name: 'pricelist-{{srv}}'
+      labels:
+        pricelist-component: '{{srv}}'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/christianh814/gitops-examples
+        targetRevision: main
+        path: '{{path}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: pricelist

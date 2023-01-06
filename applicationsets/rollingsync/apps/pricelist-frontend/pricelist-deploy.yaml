@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: pricelist
+    tier: frontend
+  name: pricelist
+  namespace: pricelist
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pricelist
+      tier: frontend
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: pricelist
+        tier: frontend
+    spec:
+      containers:
+      - image: quay.io/redhatworkshops/pricelist:latest
+        name: pricelist
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "256m"
+          limits:
+            memory: "256Mi"
+            cpu: "256m"
+        env:
+        - name: MYSQL_DATABASE
+          value: pricelist
+        - name: MYSQL_PASSWORD
+          value: pricelist
+        - name: MYSQL_USER
+          value: pricelist
+        - name: MYSQL_SERVICE_HOST
+          value: pricelist-db-mysql-primary
+        - name: MYSQL_SERVICE_PORT
+          value: "3306"
