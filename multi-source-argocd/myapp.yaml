@@ -28,7 +28,7 @@ spec:
           - name: secondary.replicaCount
             value: "2"
     - repoURL: https://github.com/christianh814/gitops-examples
-      path: app-of-apps/manifests/pricelist-frontend
+      path: applicationsets/rollingsync/apps/pricelist-frontend
       targetRevision: main
     - chart: quarkus
       repoURL: https://redhat-developer.github.io/redhat-helm-charts 
