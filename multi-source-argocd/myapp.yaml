@@ -1,0 +1,57 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: guestbook
+  namespace: argocd
+spec:
+  project: default
+  # Note it's "sources" vs "source"
+  sources:
+    - repoURL: https://github.com/christianh814/gitops-examples
+      path: app-of-apps/manifests/pricelist-config
+      targetRevision: main
+    - chart: mysql
+      repoURL: https://charts.bitnami.com/bitnami
+      targetRevision: 9.2.0
+      helm:
+        parameters:
+          - name: architecture
+            value: "replication"
+          - name: serviceAccount.name
+            value: "pricelist-db"
+          - name: auth.database
+            value: "pricelist"
+          - name: auth.username
+            value: "pricelist"
+          - name: auth.password
+            value: "pricelist"
+          - name: secondary.replicaCount
+            value: "2"
+    - repoURL: https://github.com/christianh814/gitops-examples
+      path: app-of-apps/manifests/pricelist-frontend
+      targetRevision: main
+    - chart: quarkus
+      repoURL: https://redhat-developer.github.io/redhat-helm-charts 
+      targetRevision: 0.0.3
+      helm:
+        parameters:
+          - name: build.enabled
+            value: "false"
+          - name: deploy.route.enabled
+            value: "false"
+          - name: image.name
+            value: quay.io/ablock/gitops-helm-quarkus
+  destination:
+    server: https://kubernetes.default.svc
+    ##namespace: default
+    namespace: pricelist
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    retry:
+      limit: 5
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 5m
