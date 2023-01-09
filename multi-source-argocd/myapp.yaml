@@ -14,6 +14,7 @@ spec:
       repoURL: https://charts.bitnami.com/bitnami
       targetRevision: 9.2.0
       helm:
+        releaseName: pricelist-db
         parameters:
           - name: architecture
             value: "replication"
