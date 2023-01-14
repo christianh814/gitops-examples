@@ -1,10 +1,11 @@
 mysql:
-  architecture: "replication"
+  ###architecture: "replication"
+  architecture: "standalone"
   serviceAccount:
     name: "pricelist-db"
   auth:
     database: "pricelist"
     username: "pricelist"
     password: "pricelist"
-  secondary: 
-    replicaCount: "2"
+  ###secondary: 
+    ###replicaCount: "2"
