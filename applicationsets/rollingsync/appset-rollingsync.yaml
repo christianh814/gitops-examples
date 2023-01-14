@@ -18,7 +18,7 @@ spec:
     rollingSync:
       steps:
         - matchExpressions:
-            - key: pricelist-component # the "key" is based on the label (below as "pricelist-component: {{srv}}
+            - key: pricelist-component # the "key" is based on the label (below as "pricelist-component: {{srv}}")
               operator: In
               values:
                 - config
