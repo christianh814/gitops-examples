@@ -11,9 +11,9 @@ spec:
     targetRevision: "0.0.3"
     helm:
       valueFiles:
-      - $values/charts/prometheus/values.yaml
-  - repoURL: 'https://git.example.gom/org/value-files.git'
-    targetRevision: dev
+      - $values/multi-source-argocd/quarkus-values.yaml
+  - repoURL: https://github.com/christianh814/gitops-examples
+    targetRevision: main
     ref: values
   destination:
     server: https://kubernetes.default.svc
@@ -22,6 +22,8 @@ spec:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
     retry:
       limit: 5
       backoff:
