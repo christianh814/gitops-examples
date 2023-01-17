@@ -6,9 +6,9 @@ metadata:
 spec:
   project: default
   sources:
-  - repoURL: 'https://prometheus-community.github.io/helm-charts'
-    chart: prometheus
-    targetRevision: 15.7.1
+  - repoURL: https://redhat-developer.github.io/redhat-helm-charts
+    chart: quarkus
+    targetRevision: "0.0.3"
     helm:
       valueFiles:
       - $values/charts/prometheus/values.yaml
