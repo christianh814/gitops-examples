@@ -3,10 +3,12 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   annotations:
-    argocd.argoproj.io/hook: PostSync
-    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+    argocd.argoproj.io/hook: Sync
+#    argocd.argoproj.io/hook: PostSync
+#    argocd.argoproj.io/hook-delete-policy: HookSucceeded
   name: pod-executer
 spec:
+  ttlSecondsAfterFinished: 30
   template:
     spec:
       containers:
