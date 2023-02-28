@@ -18,4 +18,4 @@ patchesJson6902:
     patch: |-
       - op: replace
         path: /spec/template/spec/containers/0/image
-        value: argoproj/rollouts-demo:red
+        value: argoproj/rollouts-demo:yellow
