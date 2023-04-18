@@ -15,6 +15,6 @@ spec:
         image: alpine:latest
         command: 
           - "sleep"
-          - "10"
+          - "12"
       restartPolicy: Never
   backoffLimit: 2
