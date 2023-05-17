@@ -7,7 +7,7 @@ metadata:
   name: bgd
   namespace: bgd
 spec:
-  host: "http://bgd-bgd.apps.noi-intel-ocp410-achm.hclcnlabs.com/"
+  host: "bgd-bgd.apps.noi-intel-ocp410-achm.hclcnlabs.com"
   port:
     targetPort: 8080
   to:
