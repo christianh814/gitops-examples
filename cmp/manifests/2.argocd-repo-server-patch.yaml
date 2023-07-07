@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argocd-repo-server
+  namespace: argocd
+spec:
+  template:
+    spec:
+      containers:
+        - name: cmp
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 999
+          image: alpine
+          imagePullPolicy: IfNotPresent
+          command: [/var/run/argocd/argocd-cmp-server]
+          volumeMounts:
+            - mountPath: /var/run/argocd
+              name: var-files
+            - mountPath: /home/argocd/cmp-server/plugins
+              name: plugins
+            - mountPath: /home/argocd/cmp-server/config/plugin.yaml
+              subPath: plugin.yaml
+              name: cmp-plugin
+            - mountPath: /tmp
+              name: cmp-tmp
+      volumes:
+        - name: cmp-plugin
+          configMap:
+            name: cmp-plugin
+        - emptyDir: {}
+          name: cmp-tmp

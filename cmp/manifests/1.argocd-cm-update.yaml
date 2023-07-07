@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cmp-plugin
+  namespace: argocd
+data:
+  plugin.yaml: |
+    apiVersion: argoproj.io/v1alpha1
+    kind: ConfigManagementPlugin
+    metadata:
+      name: cmp-plugin
+    spec:
+      version: v1.0
+      init:
+        command: [sh, -c, 'echo "Initializing..."']
+      generate: # "generate" must produce a valid Kubernetes object
+        command: [sh, -c, 'echo "{\"kind\":\"ConfigMap\",\"apiVersion\":\"v1\",\"metadata\":{\"name\":\"$ARGOCD_APP_NAME\",\"namespace\":\"$ARGOCD_APP_NAMESPACE\"},\"data\":{\"ARGOCD_APP_REVISION\":\"$ARGOCD_APP_REVISION\",\"ARGOCD_APP_SOURCE_PATH\":\"$ARGOCD_APP_SOURCE_PATH\",\"ARGOCD_APP_SOURCE_REPO_URL\":\"$ARGOCD_APP_SOURCE_REPO_URL\",\"ARGOCD_APP_SOURCE_TARGET_REVISION\":\"$ARGOCD_APP_SOURCE_TARGET_REVISION\",\"KUBE_VERSION\":\"$KUBE_VERSION\",\"KUBE_API_VERSIONS\":\"$KUBE_API_VERSIONS\",\"ARGOCD_ENV_FOO\":\"$ARGOCD_ENV_FOO\"}}"']
+      discover:
+        fileName: "./main.go" # This file should exist in the repo for the Application
