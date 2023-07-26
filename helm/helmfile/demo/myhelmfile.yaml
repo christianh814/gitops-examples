@@ -1,0 +1,25 @@
+repositories:
+- name: redhat-helm-charts
+  url: https://redhat-developer.github.io/redhat-helm-charts
+- name: podinfo-helm-chart
+  url: https://stefanprodan.github.io/podinfo
+
+releases:
+- name: sample
+  namespace: demo
+  forceNamespace: demo
+  chart: redhat-helm-charts/quarkus
+  set:
+  - name: image.name
+    value: quay.io/ablock/gitops-helm-quarkus
+  - name: build.enabled
+    value: false
+  - name: deploy.route.enabled
+    value: false
+- name: podinfo
+  namespace: pi
+  forceNamespace: pi
+  chart: podinfo-helm-chart/podinfo
+  set:
+  - name: replicaCount
+    value: 2
