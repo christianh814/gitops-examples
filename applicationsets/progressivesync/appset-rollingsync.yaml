@@ -8,11 +8,11 @@ spec:
   - list:
       elements:
       - srv: config
-        path: applicationsets/rollingsync/apps/pricelist-config
+        path: applicationsets/progressivesync/apps/pricelist-config
       - srv: db
-        path: applicationsets/rollingsync/apps/pricelist-db
+        path: applicationsets/progressivesync/apps/pricelist-db
       - srv: frontend
-        path: applicationsets/rollingsync/apps/pricelist-frontend
+        path: applicationsets/progressivesync/apps/pricelist-frontend
   strategy:
     type: RollingSync
     rollingSync:
