@@ -3,5 +3,5 @@ kind: Kustomization
 resources:
 - pricelist-deploy.yaml
 - pricelist-job.yaml
-- pricelist-route.yaml
+- pricelist-ingress.yaml
 - pricelist-svc.yaml
