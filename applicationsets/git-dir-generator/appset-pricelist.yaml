@@ -2,12 +2,12 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: pricelist
-  namespace: openshift-gitops
+  namespace: argocd
 spec:
   generators:
   - git:
       repoURL: https://github.com/christianh814/gitops-examples
-      revision: main
+      revision: testing-v2.8
       directories:
       - path: applicationsets/git-dir-generator/apps/*
   template:
@@ -27,8 +27,8 @@ spec:
             factor: 2
       source:
         repoURL: https://github.com/christianh814/gitops-examples
-        targetRevision: main
+        targetRevision: testing-v2.8
         path: '{{path}}'
       destination:
-        server: https://kubernetes.default.svc
+        name: in-cluster
         namespace: pricelist
