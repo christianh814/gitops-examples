@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: simple-go
+  name: simple-go
+  namespace: pricelist
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: simple-go
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: simple-go
+    spec:
+      containers:
+      - image: quay.io/christianh814/simple-go
+        name: simple-go
+        resources: {}
