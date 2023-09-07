@@ -5,7 +5,7 @@ metadata:
     app: welcome-php
   name: welcome-php
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: welcome-php
