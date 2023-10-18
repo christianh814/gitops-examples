@@ -3,3 +3,6 @@ kind: Kustomization
 
 bases:
 - ../../base
+
+commonAnnotations:
+  chx.io/source: ${ARGOCD_APP_NAME}
