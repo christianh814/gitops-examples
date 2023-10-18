@@ -5,4 +5,4 @@ bases:
 - ../../base
 
 commonAnnotations:
-  chx.io/source: ${ARGOCD_APP_NAME}
+  chx.io/source: $ARGOCD_APP_NAME
