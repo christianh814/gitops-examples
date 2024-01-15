@@ -1,9 +1,0 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-  creationTimestamp: null
-  name: pricelist
-  annotations:
-    argocd.argoproj.io/sync-wave: "0" 
-spec: {}
-status: {}
