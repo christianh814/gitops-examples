@@ -29,7 +29,8 @@ spec:
           value: "2"
     chart: mysql
     repoURL: https://charts.bitnami.com/bitnami
-    targetRevision: 8.4.3
+    #targetRevision: 8.4.3
+    targetRevision: 9.16.2
   syncPolicy:
     automated:
       prune: true
