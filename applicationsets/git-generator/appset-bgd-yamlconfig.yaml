@@ -11,7 +11,7 @@ spec:
       - path: "applicationsets/git-generator/cluster-config/cluster-yaml/config.yaml"
   template:
     metadata:
-      name: '{{.cluster.name}}-bgd'
+      name: '{{cluster.name}}-bgd'
     spec:
       project: default
       syncPolicy:
@@ -27,7 +27,7 @@ spec:
       source:
         repoURL: https://github.com/christianh814/gitops-examples
         targetRevision: main
-        path: 'applicationsets/git-generator/overlays/{{.cluster.overlay}}'
+        path: 'applicationsets/git-generator/overlays/{{cluster.overlay}}'
       destination:
-        name: '{{.cluster.server}}'
+        name: '{{cluster.server}}'
         namespace: bgd
