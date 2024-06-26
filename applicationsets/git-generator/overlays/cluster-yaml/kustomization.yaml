@@ -1,0 +1,9 @@
+resources:
+- ../../base
+patches:
+  - target:
+      version: v1
+      group: apps
+      kind: Deployment
+      name: bgd
+    path: bgd-deployment.yaml

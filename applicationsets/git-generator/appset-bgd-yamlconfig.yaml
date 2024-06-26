@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: bgd
+spec:
+  generators:
+  - git:
+      repoURL: https://github.com/christianh814/gitops-examples
+      revision: main
+      files:
+      - path: "applicationsets/git-generator/cluster-config/cluster-yaml/config.yaml"
+  template:
+    metadata:
+      name: '{{.cluster.name}}-bgd'
+    spec:
+      project: default
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        retry:
+          limit: 5
+          backoff:
+            duration: 5s
+            maxDuration: 3m0s
+            factor: 2
+      source:
+        repoURL: https://github.com/christianh814/gitops-examples
+        targetRevision: main
+        path: 'applicationsets/git-generator/overlays/{{.cluster.overlay}}'
+      destination:
+        name: '{{.cluster.server}}'
+        namespace: bgd
