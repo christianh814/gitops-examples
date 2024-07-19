@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: pricelist
-  namespace: openshift-gitops
+  namespace: argocd
 spec:
   generators:
   - git:
@@ -15,6 +15,13 @@ spec:
       name: '{{path.basename}}'
     spec:
       project: default
+      source:
+        repoURL: https://github.com/christianh814/gitops-examples
+        targetRevision: main
+        path: '{{path}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: pricelist
       syncPolicy:
         automated:
           prune: true
@@ -25,10 +32,3 @@ spec:
             duration: 5s
             maxDuration: 3m0s
             factor: 2
-      source:
-        repoURL: https://github.com/christianh814/gitops-examples
-        targetRevision: main
-        path: '{{path}}'
-      destination:
-        server: https://kubernetes.default.svc
-        namespace: pricelist
