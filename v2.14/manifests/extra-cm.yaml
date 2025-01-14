@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: foo
+  namespace: test
+  labels:
+    app.kubernetes.io/instance: simplego
+data:
+  foo: bar
