@@ -1,0 +1,6 @@
+kubectl annotate cm -n test foo argocd.argoproj.io/sync-options=Prune=confirm
+
+kubectl annotate cm -n test foo argocd.argoproj.io/sync-options=Delete=confirm
+
+kubectl annotate cm -n test foo \
+argocd.argoproj.io/sync-options=Delete=confirm,Prune=confirm
